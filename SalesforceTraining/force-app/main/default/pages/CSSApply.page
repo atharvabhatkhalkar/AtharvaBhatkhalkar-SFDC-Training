@@ -1,0 +1,33 @@
+<apex:page standardController="Candidate_AtharvaBhatkhalkar__c" showHeader="false" sidebar="false" >
+    <apex:stylesheet value="{!$Resource.customCSS}"/>
+    <!-- <apex:includeScript value="{!$Resource.Application_JS}"/>  -->
+    <apex:includeScript value="{!URLFOR($Resource.Application_JS)}"/>
+    <apex:form id="ValFormID" >
+        <div class = "margin1" >
+            <div class = "padding1">
+                <apex:image url="{!$Resource.Enzigma_Logo}" width="200" height="200"/>
+            </div>
+            <div class="font">Candidate Application </div>
+            <div class="font">Step 1- </div>
+            <div> 
+                <apex:pageBlock id="valPageBlock">
+                    <apex:pageBlockSection columns="2" id="valPageBlockSection">
+                        <apex:inputField id="FirstName" value="{!Candidate_AtharvaBhatkhalkar__c.First_Name__c}"/>
+                        <apex:inputField id="LastName" value="{!Candidate_AtharvaBhatkhalkar__c.Last_Name__c}"/>
+                        <apex:inputField id="Email" value="{!Candidate_AtharvaBhatkhalkar__c.Email__c}"/>
+                        <apex:inputField id="DOB" value="{!Candidate_AtharvaBhatkhalkar__c.Date_of_Birth__c}"/>
+                        <apex:inputField id="Salutation" value="{!Candidate_AtharvaBhatkhalkar__c.Salutation__c}"/>
+                        <apex:inputField id="Country" value="{!Candidate_AtharvaBhatkhalkar__c.Country__c}"/>
+                        <apex:inputField id="Status" value="{!Candidate_AtharvaBhatkhalkar__c.Status__c}"/>
+                        <apex:inputField id="State" value="{!Candidate_AtharvaBhatkhalkar__c.State__c}"/>
+                        <apex:inputField id="JOB" value="{!Candidate_AtharvaBhatkhalkar__c.JOB__c}"/>
+                        <apex:inputField id="ExpectedSalary" value="{!Candidate_AtharvaBhatkhalkar__c.Expected_Salary__c}"/>
+                    </apex:pageBlockSection>
+                    <div >
+                        <apex:commandButton action="{!Save}" onclick="validate(event.target.form.id)" value="Save"/>
+                    </div>
+                </apex:pageBlock>
+            </div>
+        </div>
+    </apex:form>
+</apex:page>

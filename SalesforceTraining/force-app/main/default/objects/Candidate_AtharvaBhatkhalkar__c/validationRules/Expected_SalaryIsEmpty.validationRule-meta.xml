@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Expected_SalaryIsEmpty</fullName>
+    <active>true</active>
+    <description>Will show an error if the expected salary field kept empty.</description>
+    <errorConditionFormula>$Setup.Deactivate_validationRules__c.Activate_Deactivate_Validation_Rule__c == true &amp;&amp;  ISNULL(Expected_Salary__c)</errorConditionFormula>
+    <errorDisplayField>Expected_Salary__c</errorDisplayField>
+    <errorMessage>Expected salary field should not be empty</errorMessage>
+</ValidationRule>

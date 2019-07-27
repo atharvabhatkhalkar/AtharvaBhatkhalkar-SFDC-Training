@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Full_Name__c</fullName>
+    <description>Field should automatically calculate full name.
+Should display Salutation First Name Last Name automatically
+E.g: If
+Salutation = ‘Mr.’
+  	`First Name = ‘Tom’
+Last Name = ‘Cruise’
+Then 
+Name should be 
+‘Mr. Tom ‘Cruise’</description>
+    <externalId>false</externalId>
+    <formula>TEXT(Salutation__c)  +  First_Name__c  +  Last_Name__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>kindly check the name.</inlineHelpText>
+    <label>Full Name</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

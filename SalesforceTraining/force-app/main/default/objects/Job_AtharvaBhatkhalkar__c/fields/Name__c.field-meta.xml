@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Name__c</fullName>
+    <description>This field is the name of the job.
+User should not enter name but system should create it automatically.
+The name should follow this format “JOB-{count}”. Count should be increased automatically for each new job posted(created). For. ex. JOB-001, JOB-002.</description>
+    <displayFormat>JOB-{000}</displayFormat>
+    <externalId>false</externalId>
+    <label>Name</label>
+    <trackTrending>false</trackTrending>
+    <type>AutoNumber</type>
+</CustomField>

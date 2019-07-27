@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Manager__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <description>This field indicates the relation of job record to the Contact record.</description>
+    <externalId>false</externalId>
+    <label>Manager</label>
+    <referenceTo>Contact</referenceTo>
+    <relationshipLabel>Job_AtharvaBhatkhalkar</relationshipLabel>
+    <relationshipName>Job_AtharvaBhatkhalkar1</relationshipName>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

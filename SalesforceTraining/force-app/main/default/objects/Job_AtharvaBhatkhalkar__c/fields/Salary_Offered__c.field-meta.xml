@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Salary_Offered__c</fullName>
+    <description>This field indicates how much salary is offered for this job.
+It should accept only numeric values up to 5 digits and not any text value.
+Salary should be displayed in dollar format.</description>
+    <externalId>false</externalId>
+    <label>Salary Offered</label>
+    <precision>5</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

@@ -1,0 +1,13 @@
+<apex:component >
+    <apex:attribute name="Candidate_AtharvaBhatkhalkar" 
+                    type="Candidate_AtharvaBhatkhalkar__c[]" description="candidate records"/>
+    <apex:pageBlockSection title="RelatedList">
+        <apex:pageBlockTable value="{!Candidate_AtharvaBhatkhalkar}" var="Candidate">
+            <apex:column value="{!Candidate.Name}"/>
+            <apex:column value="{!Candidate.First_Name__c}"/>
+            <apex:column value="{!Candidate.Last_Name__c}"/>
+            <apex:column value="{!Candidate.Email__c}"/>
+            <apex:column value="{!Candidate.JOB__c}"/>
+        </apex:pageBlockTable>
+    </apex:pageBlockSection>
+</apex:component>

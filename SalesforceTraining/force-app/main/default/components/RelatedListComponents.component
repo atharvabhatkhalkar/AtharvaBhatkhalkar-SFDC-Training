@@ -1,0 +1,15 @@
+<apex:component controller="customControllerForCandidateComponent">
+    
+    <apex:attribute name="Candidate_AtharvaBhatkhalkar" description="candidate records"
+                    type="Candidate_AtharvaBhatkhalkar__c[]"/>
+    
+    <apex:pageBlockSection title="RelatedList">
+        <apex:pageBlockTable value="{!Candidate_AtharvaBhatkhalkar}" var="objOfCandidateValues">
+            <apex:column value="{!objOfCandidateValues.Name}"/>
+            <apex:column value="{!objOfCandidateValues.First_Name__c}"/>
+            <apex:column value="{!objOfCandidateValues.Last_Name__c}"/>
+            <apex:column value="{!objOfCandidateValues.Email__c}"/>
+            <apex:column value="{!objOfCandidateValues.JOB__c}"/>
+        </apex:pageBlockTable>
+    </apex:pageBlockSection>
+</apex:component>

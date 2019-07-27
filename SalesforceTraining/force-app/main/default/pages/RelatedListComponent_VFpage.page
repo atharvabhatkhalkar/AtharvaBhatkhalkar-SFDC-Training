@@ -1,0 +1,7 @@
+<apex:page standardController="Candidate_AtharvaBhatkhalkar__c" recordSetVar="objOfCandidateValues">
+    <apex:form >
+        <apex:pageBlock >
+            <c:RelatedListComponents Candidate_AtharvaBhatkhalkar="{!objOfCandidateValues}" />
+        </apex:pageBlock>	
+    </apex:form>   
+</apex:page>

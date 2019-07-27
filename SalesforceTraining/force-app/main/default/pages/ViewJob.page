@@ -1,0 +1,26 @@
+<apex:page controller="ViewJobController" >
+    <apex:form >
+        <apex:pageBlock >
+            
+            <apex:inputField value="{!objectOfJob.Name}"/>
+            
+            <apex:pageBlockButtons >
+                <apex:commandButton title="Search" action="{!searchVal}" value="Search"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlocksection id="section1"  title="Detail" columns="1" >
+                <apex:outputField value="{!objectOfJob.Name}"/>
+                <apex:outputField value="{!objectOfJob.Description__c}"/>
+                <apex:outputField value="{!objectOfJob.Number_of_Positions__c}"/>
+                <apex:outputField value="{!objectOfJob.Active__c}"/>
+                <apex:outputField value="{!objectOfJob.Salary_Offered__c}"/>
+                <apex:outputField value="{!objectOfJob.Manager__c}"/>
+                <apex:outputField value="{!objectOfJob.Job_Type__c}"/>
+                <apex:outputField value="{!objectOfJob.Required_Skills__c}"/>
+                <apex:outputField value="{!objectOfJob.Qualification_Required__c}"/>
+                <apex:outputField value="{!objectOfJob.Certification_Required__c}"/>
+            </apex:pageBlocksection>
+            <c:ViewJobComponent Candidate_AtharvaBhatkhalkar="{!CandObj}" />
+        </apex:pageBlock>
+    </apex:form>
+    
+</apex:page>
