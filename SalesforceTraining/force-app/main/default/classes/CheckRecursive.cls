@@ -17,8 +17,8 @@ VERSION AUTHOR DATE DETAIL FEATURES/CSR/TTP
 
 public class CheckRecursive {
     
-    public static boolean isExecuted = True;
-    
+    public static boolean isExecuted = true;
+}    
 /*******************************************************************
 Purpose: To check whether the trigger is not get stuck in recursion 
 		if we are updating the same object. we took one static varible 
@@ -27,13 +27,12 @@ Returns: It returns True if the value of isExecuted is true, and returns
 		false if the value of isExecuted is false.
 ********************************************************************/
 
-    public static boolean RunOnce(){
-        if(isExecuted){ 
+    /*public static boolean RunOnce(){
+        if(isExecuted){ 	
             isExecuted=False;
             return true;
             }
         else{
             return isExecuted;
         }
-     }   
-}
+     } */

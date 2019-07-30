@@ -17,7 +17,7 @@ VERSION AUTHOR DATE DETAIL FEATURES/CSR/TTP
 public class CandidateTriggerHandler {
     
     Set<id> setOfId = new Set<id>();
-/*******************************************************************
+    /*******************************************************************
 Purpose: This method gets the value of Expected_salary field from 
 the trigger.new context variable and checks that is is not null
 if it is null then using addError() it gives the error message.
@@ -35,15 +35,15 @@ Parameters: list of trigger.new
         }
     }
     
-/*******************************************************************
+    /*******************************************************************
 Purpose: This method checks that the job which candidate has applied is 
-		inactive and gives the specific error.
+inactive and gives the specific error.
 Parameters: list of trigger.new
 ********************************************************************/
-
+    
     public void inactiveJobApplied(List<Candidate_AtharvaBhatkhalkar__c> lstOfCandidateInTrigger){ 
-         for(Candidate_AtharvaBhatkhalkar__c objCandidate : lstOfCandidateInTrigger){
-             setOfId.add(objCandidate.Job__c);}
+        for(Candidate_AtharvaBhatkhalkar__c objCandidate : lstOfCandidateInTrigger){
+            setOfId.add(objCandidate.Job__c);}
         map<Id,Job_AtharvaBhatkhalkar__c> mapJobs = new map<Id,Job_AtharvaBhatkhalkar__c>(
             [SELECT id,Active__c FROM Job_AtharvaBhatkhalkar__c WHERE id in :setOfId]
         );
@@ -55,28 +55,30 @@ Parameters: list of trigger.new
         }        
     }
     
-/*******************************************************************
+    /*******************************************************************
 Purpose: This method swaps the date with created date with the date 
-		applied by the respective candidate. 
+applied by the respective candidate. 
 Parameters: list of trigger.new
 ********************************************************************/
     public void givenDateSwapBycreatedDate(List<Candidate_AtharvaBhatkhalkar__c> lstOfCandidateOfAftTrig){
         List<Candidate_AtharvaBhatkhalkar__c> lstOfCandidate = new List<Candidate_AtharvaBhatkhalkar__c>();
         for(Candidate_AtharvaBhatkhalkar__c itrCandidate : lstOfCandidateOfAftTrig){
-            Candidate_AtharvaBhatkhalkar__c objCandidate = new Candidate_AtharvaBhatkhalkar__c (Id = itrCandidate.Id);
-            objCandidate.Application_Date__c=Date.parse(objCandidate.CreatedDate.date().format());
-            lstOfCandidate.add(objCandidate);
+            Candidate_AtharvaBhatkhalkar__c objOfCandidate = [SELECT id,Application_Date__c,CreatedDate FROM 
+                                                              Candidate_AtharvaBhatkhalkar__c WHERE 
+                                                              ID in: lstOfCandidateOfAftTrig];
+            objOfCandidate.Application_Date__c=Date.parse(objOfCandidate.CreatedDate.date().format());
+            lstOfCandidate.add(objOfCandidate);
         }
         update lstOfCandidate;
-}
+    }
     
     
-/*******************************************************************
+    /*******************************************************************
 Purpose: This method sends email to respective candidate if the status 
-		changes to hired
+changes to hired
 Parameters: list of trigger.new
 ********************************************************************/
-public void sendEmail(List<Candidate_AtharvaBhatkhalkar__c> lstOfCandidateAfterInsertOrUpdate){
+    public void sendEmail(List<Candidate_AtharvaBhatkhalkar__c> lstOfCandidateAfterInsertOrUpdate){
         Set<Id> setOfIdz= new Set<Id>();
         
         List<Messaging.SingleEmailMessage> lstOfMails = new List<Messaging.SingleEmailMessage>();
@@ -95,19 +97,19 @@ public void sendEmail(List<Candidate_AtharvaBhatkhalkar__c> lstOfCandidateAfterI
             }
         }
         Messaging.sendEmail(lstOfMails);
-}
+    }
     
-/*******************************************************************
+    /*******************************************************************
 Purpose: This method sets the status to inactive if the hired applicants
-		number is equivalent to the number of positions.
+number is equivalent to the number of positions.
 Parameters: list of trigger.new
 Returns: [optional]
 Throws [Exceptions]: [optional]
 ********************************************************************/
-   public void setStatusToInactive(List<Candidate_AtharvaBhatkhalkar__c> lstOfCandidateAfterInsertOrUpdate){
-         for(Candidate_AtharvaBhatkhalkar__c objCandidate : lstOfCandidateAfterInsertOrUpdate){
-             setOfId.add(objCandidate.Job__c);}
-       
+    public void setStatusToInactive(List<Candidate_AtharvaBhatkhalkar__c> lstOfCandidateAfterInsertOrUpdate){
+        for(Candidate_AtharvaBhatkhalkar__c objCandidate : lstOfCandidateAfterInsertOrUpdate){
+            setOfId.add(objCandidate.Job__c);}
+        
         List<Job_AtharvaBhatkhalkar__c> lstOfJobGlobal = new  List<Job_AtharvaBhatkhalkar__c>();
         List<Job_AtharvaBhatkhalkar__c> lstOfJobAppField= new List<Job_AtharvaBhatkhalkar__c>();
         
