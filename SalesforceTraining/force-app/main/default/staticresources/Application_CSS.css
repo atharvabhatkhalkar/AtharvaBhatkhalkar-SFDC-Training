@@ -1,0 +1,27 @@
+h1 {
+    color : green;
+}
+.font{
+    font-family: "Times New Roman", Times, serif;
+    color : #FF4500;
+    font-size: 25px;
+    text-decoration: underline;
+    margin-bottom: 30px;
+    position: relative;
+}
+.margin1 {
+    border:2px solid black;
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 190px;
+    margin-right: 150px;
+    margin-left: 150px;
+}
+.padding1 {
+    padding-right: 0px;
+    padding-left: 400px;
+    position: relative;
+}
+#myClass {
+    color : blue;
+}

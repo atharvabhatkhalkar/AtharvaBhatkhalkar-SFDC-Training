@@ -31,14 +31,14 @@ Throws [Exceptions]: Throws an error-AutoPopulateHasSomeError
     public static void RunForAutoPopulate(List<Id> lstOfId){
         try{
             system.debug('Does lstOfContact Conatain anything'+lstOfId);
-            List<Contact> lstOfAccount = [SELECT ID,Account.BillingStreet,Account.BillingCity,Account.BillingState,
+            List<Contact> lstOfContactFetching = [SELECT ID,Account.BillingStreet,Account.BillingCity,Account.BillingState,
                                           Account.BillingPostalCode,Account.BillingCountry FROM Contact 
                                           WHERE id in : lstOfId];
             
-            system.debug('Does lstOfAccount Conatin anything' +lstOfAccount);
+            system.debug('Does lstOfAccount Conatin anything' +lstOfContactFetching);
             Contact objOfCotactForUpdate = new Contact();
             List<Contact> lstOfContact = new List<Contact>();
-            for(Contact itrLstOfContact:lstOfAccount)  {
+            for(Contact itrLstOfContact:lstOfContactFetching)  {
                 objOfCotactForUpdate.id=itrLstOfContact.ID;
                 objOfCotactForUpdate.OtherCity=itrLstOfContact.Account.BillingCity;
                 objOfCotactForUpdate.OtherCountry=itrLstOfContact.Account.BillingCountry;

@@ -17,17 +17,18 @@ VERSION AUTHOR DATE DETAIL FEATURES/CSR/TTP
 
 
 public class customControllerForCandidateComponent{
-    private Candidate_AtharvaBhatkhalkar__c objOfCandidateValues{get;set;}
-    
+    public Candidate_AtharvaBhatkhalkar__c objOfCandidateValues{get;set;}
  /*******************************************************************
 Purpose: This method is a constructor which fetches the field values	
 		of the candidate object after matching the id from the vfpage.
 ********************************************************************/
 	 public customControllerForCandidateComponent() {
-        objOfCandidateValues = [SELECT id, First_Name__c,Last_Name__c,Salutation__c,Date_of_Birth__c,Email__c,
+         objOfCandidateValues = new Candidate_AtharvaBhatkhalkar__c();
+         objOfCandidateValues = [SELECT id, First_Name__c,Last_Name__c,Salutation__c,Date_of_Birth__c,Email__c,
                                 Country__c,State__c,Application_Date__c,Status__c,Expected_Salary__c,JOB__c 
-                                FROM Candidate_AtharvaBhatkhalkar__c
-                                WHERE id = :ApexPages.currentPage().getParameters().get('id')];
+                                FROM Candidate_AtharvaBhatkhalkar__c 
+                                WHERE id =:ApexPages.currentPage().getParameters().get('id')];
+        
     }
 /*******************************************************************
 Purpose: get method returns the values which he gets from the constructor
