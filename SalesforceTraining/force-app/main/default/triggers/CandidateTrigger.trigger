@@ -11,9 +11,9 @@ trigger CandidateTrigger on Candidate_AtharvaBhatkhalkar__c (before insert,after
         if(Trigger.isAfter && Trigger.isInsert && Deactivate_Triggers__c.getInstance().Deactivate_ActivateTriggers__c){
             if(CheckRecursive.isExecuted){
                 CheckRecursive.isExecuted=false;
-           	    ObjOfHandler.setStatusToInactive(trigger.new);
+                ObjOfHandler.setStatusToInactive(trigger.new);
                 ObjOfHandler.givenDateSwapBycreatedDate(trigger.new); 
-              	
+                
            }
         }
         
